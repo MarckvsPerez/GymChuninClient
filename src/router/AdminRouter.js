@@ -1,7 +1,14 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { AdminLayout } from "../layouts";
-import { Auth, Users, Exercise, Menu, Newsletter } from "../pages/admin";
+import {
+  Auth,
+  Users,
+  Exercise,
+  Menu,
+  Newsletter,
+  Profile,
+} from "../pages/admin";
 import { useAuth } from "../hooks";
 
 export function AdminRouter() {
@@ -21,15 +28,19 @@ export function AdminRouter() {
         <Route path="/admin/*" element={<Auth />} />
       ) : (
         <>
-          {["/admin", "/admin/exercises"].map((path) => (
+          {["/admin", "/admin/profile"].map((path) => (
             <Route
               key={path}
               path={path}
-              element={loadLayout(AdminLayout, Exercise)}
+              element={loadLayout(AdminLayout, Profile)}
             />
           ))}
           <Route path="/admin/users" element={loadLayout(AdminLayout, Users)} />
           <Route path="/admin/menu" element={loadLayout(AdminLayout, Menu)} />
+          <Route
+            path="/admin/exercises"
+            element={loadLayout(AdminLayout, Exercise)}
+          />
           <Route
             path="/admin/newsletter"
             element={loadLayout(AdminLayout, Newsletter)}

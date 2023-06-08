@@ -13,6 +13,7 @@ export function ListEmails() {
   const [pagination, setPagination] = useState(null);
   const [page, setPage] = useState(1);
   const [reload, setReload] = useState(false);
+  const [loading, setLoading] = useState(false); // Nuevo estado
   const { accessToken } = useAuth();
 
   const onReload = () => setReload((prevState) => !prevState);
@@ -20,9 +21,12 @@ export function ListEmails() {
   useEffect(() => {
     (async () => {
       try {
+        setLoading(true);
+
         const response = await newsletterController.getEmails(
           accessToken,
-          page
+          page,
+          2
         );
         setEmails(response.docs);
         setPagination({
@@ -33,6 +37,8 @@ export function ListEmails() {
         });
       } catch (error) {
         console.error(error);
+      } finally {
+        setLoading(false); // Finalizar el estado de carga
       }
     })();
   }, [page, reload]);
@@ -41,6 +47,7 @@ export function ListEmails() {
     setPage(data.activePage);
   };
 
+  if (loading) return <Loader active inline="centered" />;
   if (!emails) return <Loader active inline="centered" />;
   if (size(emails) === 0) return "No hay emails registrados";
 

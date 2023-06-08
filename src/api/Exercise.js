@@ -34,12 +34,14 @@ export class Exercise {
     }
   }
 
-  async getExercises(page = 1, limit = 10, muscle) {
+  async getExercises(page = 1, limit = 10, muscle, muscleGroup) {
     try {
       const pageFilter = `page=${page}`;
       const limitFilter = `limit=${limit}`;
       const muscleFilter = muscle ? `muscle=${muscle}` : "";
-      const url = `${this.baseApi}/${ENV.API_ROUTES.EXERCISE}?${pageFilter}&${limitFilter}&${muscleFilter}`;
+      const muscleGroupFilter = muscleGroup ? `muscleGroup=${muscleGroup}` : "";
+
+      const url = `${this.baseApi}/${ENV.API_ROUTES.EXERCISE}?${pageFilter}&${limitFilter}&${muscleGroupFilter}&${muscleFilter}`;
 
       const response = await fetch(url);
       const result = await response.json();

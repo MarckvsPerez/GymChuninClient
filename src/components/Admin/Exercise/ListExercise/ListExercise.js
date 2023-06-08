@@ -9,21 +9,25 @@ import "./ListExercise.scss";
 const exerciseController = new Exercise();
 
 export function ListExercise(props) {
-  const { reload, onReload, muscle } = props;
+  const { reload, onReload, muscleGroup } = props;
 
   const [exercises, setExercises] = useState(null);
   const [pagination, setPagination] = useState();
   const [searchParams] = useSearchParams();
   const [activePage, setActivePage] = useState(searchParams.get("page") || 1);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
     (async () => {
       try {
+        setLoading(true);
+
         const response = await exerciseController.getExercises(
           activePage,
           1,
-          muscle
+          null,
+          muscleGroup
         );
         setExercises(response.docs);
         setPagination({
@@ -34,13 +38,15 @@ export function ListExercise(props) {
         });
       } catch (error) {
         console.error(error);
+      } finally {
+        setLoading(false); // Finalizar el estado de carga
       }
     })();
-  }, [activePage, reload, muscle]);
+  }, [activePage, reload, muscleGroup]);
 
   useEffect(() => {
     setActivePage(1);
-  }, [muscle]);
+  }, [muscleGroup]);
 
   const changePage = (_, data) => {
     const newPage = data.activePage;
@@ -48,6 +54,7 @@ export function ListExercise(props) {
     navigate(`?page=${newPage}`);
   };
 
+  if (loading) return <Loader active inline="centered" />;
   if (!exercises) return <Loader active inline="centered" />;
   if (size(exercises) === 0) return "No hay ningún ejercicio";
 

@@ -1,7 +1,8 @@
 import React from "react";
-import { Menu, Icon } from "semantic-ui-react";
+import { Menu, Icon, Image } from "semantic-ui-react";
 import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "../../../../hooks";
+import { image } from "assets";
 import "./AdminMenu.scss";
 
 export function AdminMenu() {
@@ -54,7 +55,7 @@ export function AdminMenu() {
         to="/admin/exercises"
         active={isCurrentPath("/admin/exercises")}
       >
-        <Icon name="comment alternate outline" />
+        <Image src={image.dumbbell} className="icon" />
         Exercises
       </Menu.Item>
     </Menu>

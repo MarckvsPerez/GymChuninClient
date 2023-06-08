@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { Tab, Button } from "semantic-ui-react";
 import { BasicModal } from "../../../components/Shared";
+import { map } from "lodash";
 import { ExerciseForm, ListExercise } from "../../../components/Admin/Exercise";
+import jsonData from "assets/muscles.json";
 import "./Exercise.scss";
 
 export function Exercise() {
@@ -11,68 +13,33 @@ export function Exercise() {
   const onOpenCloseModal = () => setShowModal((prevState) => !prevState);
   const onReload = () => setReload((prevState) => !prevState);
 
-  const panes = [
-    {
-      menuItem: "Hombro",
-      render: () => (
-        <Tab.Pane attached={false}>
-          <ListExercise muscle={"Hombro"} reload={reload} onReload={onReload} />
-        </Tab.Pane>
-      ),
-    },
-    {
-      menuItem: "Pecho",
-      render: () => (
-        <Tab.Pane attached={false}>
-          <ListExercise muscle={"Pecho"} reload={reload} onReload={onReload} />
-        </Tab.Pane>
-      ),
-    },
-    {
-      menuItem: "Espalda",
-      render: () => (
-        <Tab.Pane attached={false}>
-          <ListExercise
-            muscle={"Espalda"}
-            reload={reload}
-            onReload={onReload}
-          />
-        </Tab.Pane>
-      ),
-    },
-    {
-      menuItem: "Piernas",
-      render: () => (
-        <Tab.Pane attached={false}>
-          <ListExercise
-            muscle={"Piernas"}
-            reload={reload}
-            onReload={onReload}
-          />
-        </Tab.Pane>
-      ),
-    },
-    {
-      menuItem: "Biceps",
-      render: () => (
-        <Tab.Pane attached={false}>
-          <ListExercise muscle={"Biceps"} reload={reload} onReload={onReload} />
-        </Tab.Pane>
-      ),
-    },
-    {
-      menuItem: "Triceps",
-      render: () => (
-        <Tab.Pane attached={false}>
-          <ListExercise
-            muscle={"Triceps"}
-            reload={reload}
-            onReload={onReload}
-          />
-        </Tab.Pane>
-      ),
-    },
-  ];
+  const muscleGroups = Object.keys(jsonData.musculos).map((group) => ({
+    key: group,
+    text: group,
+    value: group,
+  }));
+
+  const panes = map(muscleGroups, (muscle) => ({
+    menuItem: muscle.value,
+    render: () => (
+      <Tab.Pane attached={false}>
+        <ListExercise
+          muscleGroup={muscle.value}
+          reload={reload}
+          onReload={onReload}
+        />
+      </Tab.Pane>
+    ),
+  }));
+
+  panes.unshift({
+    menuItem: "Todos",
+    render: () => (
+      <Tab.Pane attached={false}>
+        <ListExercise muscleGroup={""} reload={reload} onReload={onReload} />
+      </Tab.Pane>
+    ),
+  });
 
   return (
     <>
@@ -83,7 +50,11 @@ export function Exercise() {
           </Button>
         </div>
 
-        <Tab menu={{ secondary: true }} panes={panes} />
+        <Tab
+          menu={{ secondary: true }}
+          panes={panes}
+          className="exercise-page__content"
+        />
       </div>
 
       <BasicModal
@@ -91,7 +62,7 @@ export function Exercise() {
         close={onOpenCloseModal}
         title="Crear nuevo ejercicio"
       >
-        <ExerciseForm close={onOpenCloseModal} onReload={onReload} />
+        <ExerciseForm onClose={onOpenCloseModal} onReload={onReload} />
       </BasicModal>
     </>
   );

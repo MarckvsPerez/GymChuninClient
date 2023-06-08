@@ -5,6 +5,7 @@ export function initialValues(post) {
     title: post?.title || "",
     path: post?.path || "",
     content: post?.content || "",
+    muscleGroup: post?.muscleGroup || "",
     muscle: post?.muscle || "",
     miniature: post?.miniature || "",
     file: null,
@@ -16,6 +17,7 @@ export function validationSchema() {
     title: Yup.string().required(true),
     path: Yup.string().required(true),
     content: Yup.string().required(true),
+    muscleGroup: Yup.string().required(true),
     muscle: Yup.string().required(true),
     miniature: Yup.string().required(true),
   });

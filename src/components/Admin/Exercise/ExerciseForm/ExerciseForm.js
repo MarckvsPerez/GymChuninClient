@@ -7,6 +7,7 @@ import { Exercise } from "../../../../api";
 import { useAuth } from "../../../../hooks";
 import { ENV } from "../../../../utils";
 import { initialValues, validationSchema } from "./ExerciseForm.form";
+import jsonData from "assets/muscles.json";
 import "./ExerciseForm.scss";
 
 const exerciseController = new Exercise();
@@ -15,11 +16,23 @@ export function ExerciseForm(props) {
   const { onClose, onReload, exercise } = props;
   const { accessToken } = useAuth();
 
-  const muscles = [
-    { key: "hombro", text: "Hombro", value: "Hombro" },
-    { key: "pecho", text: "Pecho", value: "Pecho" },
-    // Agrega más opciones de músculos según sea necesario
-  ];
+  const muscleGroups = Object.keys(jsonData.musculos).map((group) => ({
+    key: group,
+    text: group,
+    value: group,
+  }));
+
+  const editorOptions = {
+    height: 400,
+    menubar: true,
+    toolbar:
+      // eslint-disable-next-line no-multi-str
+      "undo redo | formatselect | bold italic backcolor | \
+      alignleft aligncenter alignright alignjustify | \
+      bullist numlist outdent indent | removeformat | ",
+    content_style:
+      "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
+  };
 
   const formik = useFormik({
     initialValues: initialValues(exercise),
@@ -87,30 +100,40 @@ export function ExerciseForm(props) {
       <Form.Group widths="equal">
         <Form.Field
           control={Dropdown}
-          name="muscle"
-          placeholder="Musculo"
+          placeholder="Grupo Muscular"
           selection
-          options={muscles}
+          options={muscleGroups}
+          onChange={(event, { value }) => {
+            formik.setFieldValue("muscleGroup", value);
+            formik.setFieldValue("muscle", "");
+          }}
+          value={formik.values.muscleGroup}
+        />
+
+        <Form.Field
+          control={Dropdown}
+          name="muscle"
+          placeholder="Músculo"
+          selection
+          options={
+            formik.values.muscleGroup
+              ? jsonData.musculos[formik.values.muscleGroup].map((muscle) => ({
+                  key: muscle.nombre,
+                  text: muscle.nombre,
+                  value: muscle.nombre,
+                }))
+              : []
+          }
           onChange={(event, { value }) => formik.setFieldValue("muscle", value)}
           value={formik.values.muscle}
           error={formik.errors.muscle ? true : false}
+          disabled={!formik.values.muscleGroup}
         />
       </Form.Group>
 
       <Editor
-        init={{
-          height: 400,
-          menubar: true,
-          plugins: [
-            "advlist autolink lists link image charmap print preview anchor",
-            "searchreplace visualblocks code fullscreen",
-            "insertdatetime media table paste code help wordcount",
-          ],
-          toolbar:
-            "undo redo | formatselect | bold italic backcolor | \
-             alignleft aligncenter alignright alignjustify | \
-             bullist numlist outdent indent | removeformat | help",
-        }}
+        apiKey="kqouulohyugx37iuagjwuixko0dug6ht4ktgzuryyaatthcv"
+        init={editorOptions}
         initialValue={formik.values.content}
         onBlur={(e) => formik.setFieldValue("content", e.target.getContent())}
       />

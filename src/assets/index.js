@@ -10,6 +10,7 @@ import avatar03 from "./png/avatar_03.png";
 import avatar04 from "./png/avatar_04.png";
 import avatar05 from "./png/avatar_05.png";
 import avatar06 from "./png/avatar_06.png";
+import dumbbell from "./png/dumbbell.png";
 
 const Icon = {
   LogoWhite,
@@ -26,6 +27,7 @@ const image = {
   avatar04,
   avatar05,
   avatar06,
+  dumbbell,
 };
 
 export { Icon, image };
