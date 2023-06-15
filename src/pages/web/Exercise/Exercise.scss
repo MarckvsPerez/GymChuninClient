@@ -1,23 +1,83 @@
 @import "~/src/scss/index.scss";
 
-.post {
-  margin-top: 50px;
+.exercise {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  padding: 10px;
 
-  .title {
-    color: $text-light;
-    text-align: center;
-    margin-bottom: 6;
+  .ui.card {
+    width: 25%;
+    min-width: 228px;
+    overflow: auto;
+    background-color: transparent;
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
+    transition: box-shadow 0.3s ease-in-out;
+    border-radius: 10px;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &:hover {
+      box-shadow: 0px 0px 15px rgba(255, 255, 255, 1);
+    }
+
+    img {
+      aspect-ratio: 1/1;
+      object-fit: cover;
+    }
+
+    > .content {
+      > .header,
+      .meta,
+      > .description {
+        color: $text-light;
+      }
+
+      > .meta {
+        opacity: 0.6;
+      }
+    }
+
+    .label {
+      width: 100%;
+      text-align: center;
+    }
   }
 
-  .content {
+  .contentMain {
     color: $text-light;
-    opacity: 0.6;
-    font-size: 16px;
+    padding: 10px;
+    padding-left: 25px;
+    width: 75%;
+    text-align: justify;
+    overflow: auto;
 
-    pre {
-      background-color: #000000;
-      overflow-x: scroll;
-      padding: 20px;
+    h1 {
+      border-bottom: 1px solid white;
+    }
+  }
+}
+
+.contentMain::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .exercise {
+    display: block;
+    overflow: auto;
+
+    .ui.card,
+    .contentMain {
+      width: 100%;
+      padding: 10px;
+      overflow: hidden;
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
     }
   }
 }

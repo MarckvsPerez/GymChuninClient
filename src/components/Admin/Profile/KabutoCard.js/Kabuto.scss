@@ -1,0 +1,111 @@
+@import "~/src/scss/index.scss";
+
+.card {
+  background-color: $text-light;
+  padding: 15px;
+  height: 100%;
+  aspect-ratio: 3/4;
+  border-radius: 10px;
+  -shadow: 0px 5px 15px rgba(255, 255, 255, 0.4);
+  transition: -shadow 0.3s ease-in-out;
+  color: $text-light;
+
+  &:hover {
+    -shadow: 0px 5px 20px rgba(255, 255, 255, 0.8);
+  }
+
+  span {
+    opacity: 0.6;
+    font-weight: 100;
+  }
+
+  &__content {
+    background: linear-gradient(0deg, $background-light, $background-dark 100%);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    .Top {
+      height: 10%;
+      display: flex;
+      justify-content: center;
+
+      .svg-Container {
+        height: 100%;
+        aspect-ratio: 1/1;
+        padding: 5px;
+        border-radius: 50%;
+        background-color: $primary;
+        margin-top: -10px;
+
+        svg {
+          height: 100%;
+          width: 100%;
+          fill: $text-light;
+        }
+      }
+    }
+
+    .Header {
+      height: 30%;
+      display: flex;
+      justify-content: end;
+      padding: 5px;
+      font-size: 1.5rem;
+
+      .Datos {
+        padding: 1rem;
+        padding-right: 1.5rem;
+        width: 60%;
+      }
+
+      > img {
+        object-fit: cover;
+        border-radius: 5px;
+        height: 100%;
+        width: 40%;
+      }
+    }
+
+    .Main {
+      height: 20%;
+      padding: 5px;
+      display: flex;
+      font-size: 1.2rem;
+      padding: 1rem;
+
+      .ui.grid {
+        margin: 0 !important;
+
+        > .row {
+          padding: 0 !important;
+
+          .column {
+            padding: 0;
+          }
+        }
+      }
+    }
+
+    .Footer {
+      display: flex;
+      justify-content: center;
+      height: 40%;
+      padding: 5px;
+
+      canvas {
+        width: auto;
+        height: 100% !important;
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .card {
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+  }
+}

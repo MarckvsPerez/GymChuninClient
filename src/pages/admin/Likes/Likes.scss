@@ -1,0 +1,76 @@
+@import "~/src/scss/index.scss";
+
+.likes-page {
+  height: 100%;
+
+  &__content {
+    height: 100%;
+
+    .ui.grid {
+      margin: 0 !important;
+      height: 100%;
+
+      .column {
+        height: 100%;
+      }
+    }
+  }
+}
+
+.likes-mobile {
+  height: 100%;
+
+  &__content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .ui.menu.fluid {
+      a {
+        color: $text-light;
+      }
+      height: auto !important;
+      overflow: auto;
+      background-color: $background-dark;
+      box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.08);
+      transition: box-shadow 0.3s ease-in-out;
+
+      &::-webkit-scrollbar-thumb {
+        background: $accent-dark; /* color of the tracking area */
+      }
+
+      &:hover {
+        box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.4);
+      }
+
+      .item.active:hover {
+        color: $accent-light;
+      }
+
+      .item:hover {
+        color: $accent-light;
+      }
+    }
+
+    .ui.segment {
+      overflow: auto;
+      height: 100%;
+      box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.08);
+      transition: box-shadow 0.3s ease-in-out;
+
+      &:hover {
+        box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.4);
+      }
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      .list-exercise {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+    }
+  }
+}

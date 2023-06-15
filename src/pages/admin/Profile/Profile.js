@@ -3,6 +3,7 @@ import { User } from "api";
 import { useAuth } from "hooks";
 import { KabutoCard } from "components/Admin/Profile";
 import { Loader } from "semantic-ui-react";
+import "./Profile.scss";
 
 const userController = new User();
 
@@ -19,12 +20,12 @@ export function Profile() {
         console.error(error);
       }
     })();
-  }, []);
+  }, [accessToken]);
 
   if (!user) return <Loader active inline="centered" />;
 
   return (
-    <div>
+    <div className="profile-content">
       <KabutoCard user={user} />
     </div>
   );

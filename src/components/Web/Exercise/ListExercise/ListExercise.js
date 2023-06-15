@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Loader, Pagination } from "semantic-ui-react";
+import { Loader, Pagination, Grid } from "semantic-ui-react";
 import { map } from "lodash";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { Exercise } from "../../../../api";
@@ -13,12 +13,19 @@ export function ListExercise() {
   const [pagination, setPagination] = useState();
   const [searchParams] = useSearchParams();
   const [page, setPage] = useState(searchParams.get("page") || 1);
+  const muscleGroup = searchParams.get("muscleGroup");
+  const muscle = searchParams.get("muscle");
   const navigate = useNavigate();
 
   useEffect(() => {
     (async () => {
       try {
-        const response = await exerciseController.getExercises(page, 1);
+        const response = await exerciseController.getExercises(
+          page,
+          12,
+          muscle,
+          muscleGroup
+        );
         setExercise(response.docs);
         setPagination({
           limit: response.limit,
@@ -42,13 +49,21 @@ export function ListExercise() {
 
   return (
     <div className="list-posts-web">
-      <div className="list">
-        {map(exercises, (exercise) => (
-          <div key={exercise._id} className="item">
-            <ListExerciseItem exercise={exercise} />
-          </div>
-        ))}
-      </div>
+      {exercises.length === 0 ? (
+        <div className="list">
+          <h3 className="no_content">No hay ejercicios</h3>
+        </div>
+      ) : (
+        <div className="list-grid-container">
+          <Grid columns={4} doubling stackable>
+            {map(exercises, (exercise) => (
+              <Grid.Column key={exercise._id}>
+                <ListExerciseItem exercise={exercise} key={exercise._id} />
+              </Grid.Column>
+            ))}
+          </Grid>
+        </div>
+      )}
 
       <div className="pagination">
         <Pagination

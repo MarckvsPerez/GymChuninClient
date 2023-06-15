@@ -1,23 +1,32 @@
 @import "~/src/scss/index.scss";
 
 .list-posts-web {
-  margin-top: 70px;
+  height: 100%;
+  width: 100%;
+  padding: 10px;
 
   .list {
-    display: flex;
-    flex-wrap: wrap;
+    height: 90%;
+  }
+
+  .list-grid-container {
+    height: 90%;
+    overflow-x: hidden;
 
     .item {
-      width: 33.33%;
-      padding: 20px;
+      width: 200px;
+      height: 200px;
+      padding: 5px;
     }
+  }
+
+  .list-grid-container::-webkit-scrollbar {
+    display: none;
   }
 
   .pagination {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
-
     a {
       color: $text-light !important;
       opacity: 0.6;

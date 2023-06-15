@@ -1,27 +1,61 @@
 @import "~/src/scss/index.scss";
 
 .client-layout {
-  background-color: $background-dark-web;
-  min-height: 100vh;
+  background: linear-gradient(0deg, $background-light, $background-dark 100%);
+  flex-direction: column;
+  height: 100vh;
 
-  &__footer {
-    margin-top: 50px;
-    padding: 20px 0 10px 0;
-    border-top: 3px solid $primary;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+  .client-layout__header {
+    height: 10%;
+  }
+  .client-layout__footer {
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    color: $text-light;
 
-    > .ui.container {
+    &-components {
+      height: 100%;
+      width: 100%;
       display: flex;
-
-      &:last-of-type {
-        justify-content: space-between;
-        margin-top: 30px;
-        color: $text-light;
-        font-size: 12px;
-        opacity: 0.4;
-      }
     }
+  }
+
+  .client-layout__content {
+    height: 70%;
+    display: flex;
+  }
+
+  @media (max-width: 768px) {
+    .client-layout__content {
+      display: block;
+      height: 70%;
+    }
+  }
+
+  .ui.button {
+    color: $text-light;
+    border: solid 1px $text-light;
+    background-color: transparent;
+    box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.08);
+    transition: box-shadow 0.3s ease-in-out;
+    font-size: 1rem;
+    padding: 0.5em 1.5em 0.5em;
+  }
+
+  @media (max-width: 768px) {
+    .ui.button {
+      font-size: 0.8rem;
+    }
+  }
+  .ui.button:hover {
+    color: $text-light;
+    border: solid 1px$text-light;
+    box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.4);
+  }
+
+  .no_content {
+    text-align: center;
+    color: $text-light;
   }
 }

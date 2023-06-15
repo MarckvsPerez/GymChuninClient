@@ -1,24 +1,19 @@
-$primary: #1890ff;
-$primary-hover: #0280b3;
-$primary-active: #7fdcf1;
+// Primary
+$primary: #ff5848; // Si
+$primary-active: #ffaba3;
+$primary-hover: #c8655b;
 
-// Text
-$text-light: #fff;
+$secondary: #338aae;
+$secondary-active: #578699;
+$secondary-hover: #2a7391;
+
+// Accent
+$accent-light: #bebebe;
+$accent-dark: #3f4140;
 
 // Background
-$background-dark: #001b35;
-$background-grey: #f0f3f4;
-$background-dark-web: #16212b;
+$background-light: #000000; // Si
+$background-dark: rgb(32, 32, 32); // Si
 
-// Border
-$border-grey: #808080;
-
-// Status
-$success: #84b84c;
-$error: #9f3a38;
-
-// Social Color
-$youtube: #cd201f;
-$twitter: #1da1f2;
-$facebook: #3b5998;
-$linkedin: #0077b5;
+// Text
+$text-light: #ececec;

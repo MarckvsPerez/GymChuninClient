@@ -1,0 +1,103 @@
+@import "~/src/scss/index.scss";
+
+.muscle-detail {
+  height: 100%;
+  width: 30%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  > div {
+    margin: 10px;
+  }
+}
+
+.svgContainer {
+  height: 100%;
+  width: 70%;
+  transition: 0.2s;
+  border-radius: 20px;
+  padding: 10px;
+
+  &:hover {
+    filter: drop-shadow(0px 0px 1px rgb(255, 255, 255));
+    transition: 0.2s;
+  }
+
+  > svg {
+    height: 100%;
+    width: 100%;
+    filter: drop-shadow(0px 0px 5px rgb(255, 255, 255));
+  }
+  .paint {
+    fill: #95301d;
+  }
+
+  .paint2 {
+    fill: #a34638;
+  }
+
+  #Estatic .muscle {
+    fill: $accent-dark;
+  }
+
+  .muscle {
+    fill: $accent-dark;
+  }
+
+  .head {
+    fill: #6f6f6f;
+  }
+  .head2 {
+    fill: #bfc0bc;
+  }
+
+  .hair {
+    fill: #f6f6f2;
+  }
+
+  .hair2 {
+    fill: grey;
+  }
+  .background {
+    fill: $accent-light;
+  }
+
+  #Pectoral:not(.activeMuscle):hover path,
+  #Brazo:not(.activeMuscle):hover path,
+  #Espalda:not(.activeMuscle):hover path,
+  #Cuadriceps:not(.activeMuscle):hover path,
+  #Isquiotibiales:not(.activeMuscle):hover path,
+  #Gemelos:not(.activeMuscle):hover path,
+  #Gluteos:not(.activeMuscle):hover path,
+  #Abductores:not(.activeMuscle):hover path,
+  #Pantorrilla:not(.activeMuscle):hover path,
+  #Aductores:not(.activeMuscle):hover path,
+  #Abdominales:not(.activeMuscle):hover path,
+  #Deltoide:not(.activeMuscle):hover path {
+    fill: $primary;
+    cursor: pointer;
+  }
+
+  .activeMuscle path {
+    fill: $secondary;
+    cursor: pointer;
+  }
+
+  .activeMuscle:hover path {
+    fill: $secondary-hover;
+  }
+}
+
+@media (max-width: 600px) {
+  .muscle-detail {
+    flex-direction: row;
+    height: 30%;
+    width: 100%;
+  }
+
+  .svgContainer {
+    height: 70%;
+    width: 100%;
+  }
+}

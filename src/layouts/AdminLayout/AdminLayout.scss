@@ -1,39 +1,153 @@
 @import "~/src/scss/index.scss";
 
-$widthLeftMenu: 200px;
+.ui.segment.pushable {
+  background: linear-gradient(0deg, $background-light, $background-dark 100%);
+  border-radius: 0px;
+  border: 0px;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
-.admin-layout {
-  display: flex;
-  min-height: 100vh;
-  max-height: 100vh;
-  background-color: $background-grey;
+  .pusher {
+    height: 100vh;
 
-  &__left {
-    background-color: $background-dark;
-    width: $widthLeftMenu;
+    .no_content {
+      text-align: center;
+    }
 
-    .logo {
-      height: 36px;
+    .ui.button {
+      color: $text-light;
+      border: solid 1px $text-light;
+      background-color: transparent;
+      box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.08);
+      transition: box-shadow 0.3s ease-in-out;
+      font-size: 1rem;
+
+      &:hover {
+        color: $text-light;
+        border: solid 1px$text-light;
+        box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.4);
+        background-color: rgba(255, 255, 255, 0.4);
+      }
+    }
+
+    .ui.basic.segment {
+      padding: 0%;
+      height: 100%;
       width: 100%;
-      margin: 10px 0;
+    }
+
+    .ui.secondary.menu:not(.ui.pagination.menu) {
+      a.item {
+        color: $text-light;
+        border: solid 1px $text-light;
+        background-color: transparent;
+        box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.08);
+        transition: box-shadow 0.3s ease-in-out;
+        font-size: 1rem;
+
+        &:hover {
+          color: $text-light;
+          border: solid 1px$text-light;
+          box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.4);
+          background-color: rgba(255, 255, 255, 0.4);
+        }
+      }
+    }
+
+    .bar {
+      height: 10%;
+    }
+
+    .content {
+      height: calc(90% - 10px);
+      color: $text-light;
+
+      .ui.segment {
+        background-color: transparent;
+        border-radius: 10px;
+        box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.08);
+        transition: box-shadow 0.3s ease-in-out;
+        overflow: auto;
+
+        &:hover {
+          box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.4);
+        }
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
+
+        .list-exercise {
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+          color: $text-light;
+
+          .list-post__pagination {
+            margin-top: auto;
+            padding: 15px;
+
+            .ui.pagination.menu {
+              a.active {
+                opacity: 1;
+                border-color: #ececec !important;
+              }
+              a {
+                color: $text-light;
+              }
+            }
+          }
+        }
+      }
+
+      .ui.vertical.menu.fluid {
+        height: 100%;
+        overflow: auto;
+        background-color: transparent;
+        box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.08);
+        transition: box-shadow 0.3s ease-in-out;
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
+
+        &:hover {
+          box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.4);
+        }
+
+        .item {
+          &:hover {
+            background-color: $text-light;
+            color: $accent-dark;
+          }
+        }
+
+        .active {
+          background: rgba(255, 255, 255, 0.08);
+        }
+        a {
+          color: $text-light;
+        }
+      }
+    }
+
+    .ui.secondary.pointing.menu {
+      .item {
+        color: $text-light;
+      }
+
+      .active.item {
+        border-color: $accent-light;
+      }
+    }
+
+    .ui.dropdown .menu {
+      background-color: $background-dark;
     }
   }
 
-  &__right {
-    width: calc(100% - $widthLeftMenu);
-
-    &-header {
-      background-color: $background-dark;
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      padding: 0 10px;
-    }
-
-    &-content {
-      position: relative;
-      margin: 20px;
-    }
+  .ui.pointing.dropdown > .menu:after {
+    background-color: $background-dark;
   }
 }

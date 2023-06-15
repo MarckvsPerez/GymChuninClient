@@ -23,7 +23,8 @@ export function ListMenu(props) {
   }, [active, reload]);
 
   if (!menus) return <Loader active inline="centered" />;
-  if (size(menus) === 0) return "No hay ningun menu";
+  if (size(menus) === 0)
+    return <div className="no_content">No hay ningun menu</div>;
 
   return map(menus, (menu) => (
     <MenuItem key={menu._id} menu={menu} onReload={onReload} />

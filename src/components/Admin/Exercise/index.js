@@ -1,3 +1,3 @@
 export * from "./ListExercise";
-export * from "./ExerciseItem";
+export * from "../../Shared/ExerciseItem";
 export * from "./ExerciseForm";

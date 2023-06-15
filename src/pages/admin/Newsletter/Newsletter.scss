@@ -1,0 +1,30 @@
+.newsletter-page {
+  height: 100%;
+
+  > div {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+
+    .segment.active {
+      flex: 1;
+      overflow: auto;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      .list-emails {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+
+        &__pagination {
+          margin-top: auto;
+          padding-bottom: 15px;
+        }
+      }
+    }
+  }
+}

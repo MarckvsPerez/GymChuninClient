@@ -1,9 +1,10 @@
 import React from "react";
+import { MuscleSelector } from "components/Web";
 
 export function Home() {
   return (
-    <div>
-      <h1>HOME</h1>
-    </div>
+    <>
+      <MuscleSelector />
+    </>
   );
 }

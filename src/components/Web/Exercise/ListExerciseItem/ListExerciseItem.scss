@@ -1,16 +1,19 @@
 @import "~/src/scss/index.scss";
 
 .list-post-item {
+  height: 100%;
   &:hover {
     opacity: 0.6;
   }
 
   .ui.image {
     border-radius: 20px;
+    aspect-ratio: 16/9;
+    object-fit: cover;
   }
 
   h2 {
-    font-size: 16px;
+    font-size: 1.2rem;
     color: $text-light;
     margin: 10px 0 0 0;
     font-weight: normal;
@@ -19,6 +22,6 @@
   span {
     color: $text-light;
     opacity: 0.4;
-    font-size: 12px;
+    font-size: 1rem;
   }
 }

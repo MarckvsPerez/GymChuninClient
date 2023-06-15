@@ -1,0 +1,114 @@
+@import "~/src/scss/index.scss";
+
+.selector-result,
+.selector-container {
+  max-height: 30vw;
+  height: 100%;
+  border-radius: 20px;
+  box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
+  transition: box-shadow 0.3s ease-in-out;
+  overflow: hidden;
+
+  &:hover {
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 1);
+  }
+}
+
+@media (max-width: 600px) {
+  .selector-result,
+  .selector-container {
+    width: 50%;
+  }
+}
+
+.selector-container {
+  padding: 2rem;
+  &__detail {
+    width: 100%;
+    height: 100%;
+
+    .background {
+      fill: $accent-light;
+    }
+
+    > .avalible {
+      fill: $accent-dark;
+    }
+    > .avalible:hover {
+      fill: $primary;
+      cursor: pointer;
+    }
+
+    > .group {
+      fill: $accent-dark;
+    }
+
+    > .group:hover {
+      fill: $primary;
+      cursor: pointer;
+    }
+
+    > .selected {
+      fill: $secondary;
+    }
+    > .selected:hover {
+      fill: $secondary-hover;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .selector-container {
+    padding: 1rem;
+  }
+}
+
+.selector-result {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  color: $accent-light;
+  padding: 1rem;
+  font-size: 1rem;
+
+  &__header {
+    align-items: center;
+
+    .header {
+      opacity: 0.8;
+      font-weight: 200;
+    }
+
+    .title {
+      font-weight: bolder;
+    }
+  }
+
+  &__content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    max-height: 100%;
+    overflow: auto;
+    font-size: 0.8rem;
+
+    .text {
+      word-wrap: break-word;
+    }
+  }
+
+  @media (max-width: 700px) {
+    &__content {
+      .text {
+        display: none;
+      }
+    }
+  }
+
+  &__button-container {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+  }
+}

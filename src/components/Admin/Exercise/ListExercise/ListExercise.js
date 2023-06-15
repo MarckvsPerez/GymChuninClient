@@ -1,31 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { Loader, Pagination } from "semantic-ui-react";
-import { map, size } from "lodash";
-import { useNavigate, useSearchParams } from "react-router-dom";
 import { Exercise } from "../../../../api";
-import { ExerciseItem } from "../ExerciseItem";
+import { ExerciseItem } from "../../../Shared/ExerciseItem";
 import "./ListExercise.scss";
 
 const exerciseController = new Exercise();
 
-export function ListExercise(props) {
-  const { reload, onReload, muscleGroup } = props;
-
+export function ListExercise({ reload, onReload, muscleGroup }) {
   const [exercises, setExercises] = useState(null);
-  const [pagination, setPagination] = useState();
-  const [searchParams] = useSearchParams();
-  const [activePage, setActivePage] = useState(searchParams.get("page") || 1);
-  const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
+  const [pagination, setPagination] = useState({});
+  const [activePage, setActivePage] = useState(1);
 
   useEffect(() => {
-    (async () => {
+    async function fetchExercises() {
       try {
-        setLoading(true);
-
         const response = await exerciseController.getExercises(
           activePage,
-          1,
+          10,
           null,
           muscleGroup
         );
@@ -38,10 +29,9 @@ export function ListExercise(props) {
         });
       } catch (error) {
         console.error(error);
-      } finally {
-        setLoading(false); // Finalizar el estado de carga
       }
-    })();
+    }
+    fetchExercises();
   }, [activePage, reload, muscleGroup]);
 
   useEffect(() => {
@@ -49,24 +39,25 @@ export function ListExercise(props) {
   }, [muscleGroup]);
 
   const changePage = (_, data) => {
-    const newPage = data.activePage;
-    setActivePage(newPage);
-    navigate(`?page=${newPage}`);
+    setActivePage(data.activePage);
   };
 
-  if (loading) return <Loader active inline="centered" />;
   if (!exercises) return <Loader active inline="centered" />;
-  if (size(exercises) === 0) return "No hay ningún ejercicio";
 
   return (
     <div className="list-exercise">
-      {map(exercises, (exercise) => (
-        <ExerciseItem
-          key={exercise._id}
-          exercise={exercise}
-          onReload={onReload}
-        />
-      ))}
+      {exercises?.length ? (
+        exercises.map((exercise) => (
+          <ExerciseItem
+            key={exercise._id}
+            exercise={exercise}
+            onReload={onReload}
+            editable={true}
+          />
+        ))
+      ) : (
+        <div>No hay ningún ejercicio</div>
+      )}
 
       <div className="list-post__pagination">
         <Pagination
@@ -75,6 +66,8 @@ export function ListExercise(props) {
           ellipsisItem={null}
           firstItem={null}
           lastItem={null}
+          secondary
+          pointing
           onPageChange={changePage}
         />
       </div>

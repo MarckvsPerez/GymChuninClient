@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Image, Button, Icon, Confirm } from "semantic-ui-react";
+import React, { useState, useEffect } from "react";
+import { Image, Button, Icon, Confirm, Dropdown } from "semantic-ui-react";
 import { image } from "../../../../assets";
 import { User } from "../../../../api";
 import { useAuth } from "../../../../hooks";
@@ -16,6 +16,7 @@ export function UserItem(props) {
 
   const [showModal, setShowModal] = useState(false);
   const [titleModal, setTitleModal] = useState("");
+  const [isMobile, setIsMobile] = useState(false);
 
   const [showConfirm, setShowConfirm] = useState(false);
   const [confirmMessage, setConfirmMessage] = useState("");
@@ -67,6 +68,20 @@ export function UserItem(props) {
     }
   };
 
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768); // Cambia el valor de 768 según tus necesidades
+    };
+
+    handleResize(); // Comprobar el tamaño inicial al cargar la página
+
+    window.addEventListener("resize", handleResize); // Agregar el evento de redimensionamiento
+
+    return () => {
+      window.removeEventListener("resize", handleResize); // Limpiar el evento al desmontar el componente
+    };
+  }, []);
+
   return (
     <>
       <div className="user-item">
@@ -86,19 +101,43 @@ export function UserItem(props) {
         </div>
 
         <div>
-          <Button icon primary onClick={openUpdateUser}>
-            <Icon name="pencil" />
-          </Button>
-          <Button
-            icon
-            color={user.active ? "orange" : "teal"}
-            onClick={openDesactivateActivateConfim}
-          >
-            <Icon name={user.active ? "ban" : "check"} />
-          </Button>
-          <Button icon color="red" onClick={openDeleteConfirm}>
-            <Icon name="trash" />
-          </Button>
+          {isMobile ? (
+            <Dropdown icon="cog" pointing="right" button className="icon">
+              <Dropdown.Menu>
+                <Dropdown.Item>
+                  <Button icon primary onClick={openUpdateUser}>
+                    <Icon name="pencil" />
+                  </Button>
+                  <Button
+                    icon
+                    color={user.active ? "orange" : "teal"}
+                    onClick={openDesactivateActivateConfim}
+                  >
+                    <Icon name={user.active ? "ban" : "check"} />
+                  </Button>
+                  <Button icon color="red" onClick={openDeleteConfirm}>
+                    <Icon name="trash" />
+                  </Button>
+                </Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+          ) : (
+            <>
+              <Button icon primary onClick={openUpdateUser}>
+                <Icon name="pencil" />
+              </Button>
+              <Button
+                icon
+                color={user.active ? "orange" : "teal"}
+                onClick={openDesactivateActivateConfim}
+              >
+                <Icon name={user.active ? "ban" : "check"} />
+              </Button>
+              <Button icon color="red" onClick={openDeleteConfirm}>
+                <Icon name="trash" />
+              </Button>
+            </>
+          )}
         </div>
       </div>
 

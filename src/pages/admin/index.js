@@ -4,3 +4,4 @@ export * from "./Exercises";
 export * from "./Menu";
 export * from "./Newsletter";
 export * from "./Profile";
+export * from "./Likes";

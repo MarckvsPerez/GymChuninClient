@@ -8,22 +8,18 @@ export function ClientLayout(props) {
 
   return (
     <div className="client-layout">
-      <div className="client-layout__header">
+      <Container className="client-layout__header">
         <TopBar />
-      </div>
+      </Container>
 
-      {children}
+      <Container className="client-layout__content">{children}</Container>
 
-      <div className="client-layout__footer">
-        <Container>
+      <Container className="client-layout__footer">
+        <div className="client-layout__footer-components">
           <Footer.Info />
           <Footer.Newsletter />
-        </Container>
-        <Container>
-          <span>© ALL RIGHTS RESERVED</span>
-          <span>AGUSTÍN NAVARRO GALDON | FRONTEND DEVELOPER</span>
-        </Container>
-      </div>
+        </div>
+      </Container>
     </div>
   );
 }

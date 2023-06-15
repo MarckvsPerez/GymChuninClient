@@ -2,31 +2,15 @@
 
 .ui.menu.admin-menu {
   > .item {
-    display: flex;
     color: $text-light;
-    padding: 15px 20px !important;
-    margin: 0 !important;
-    border-radius: 0 !important;
 
     &:hover,
     &.active:hover {
       color: $text-light;
-      background-color: $primary-hover;
     }
 
     &.active {
       color: $text-light;
-      background-color: $primary-active;
-    }
-    > i {
-      margin: 0 !important;
-      margin-right: 10px !important;
-    }
-
-    > .icon {
-      width: 15px;
-      margin: 0 !important;
-      margin-right: 10px !important;
     }
   }
 }

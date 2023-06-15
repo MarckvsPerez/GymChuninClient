@@ -1,8 +1,7 @@
 import React from "react";
-import { Menu, Icon, Image } from "semantic-ui-react";
+import { Menu, Icon } from "semantic-ui-react";
 import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "../../../../hooks";
-import { image } from "assets";
 import "./AdminMenu.scss";
 
 export function AdminMenu() {
@@ -19,17 +18,25 @@ export function AdminMenu() {
 
   return (
     <Menu fluid vertical icon text className="admin-menu">
+      <Menu.Item
+        as={Link}
+        to="/admin/profile"
+        active={isCurrentPath("/admin/profile")}
+      >
+        <Icon name="user" />
+        Perfil
+      </Menu.Item>
+      <Menu.Item
+        as={Link}
+        to="/admin/likes"
+        active={isCurrentPath("/admin/likes")}
+      >
+        <Icon name="like" />
+        Me gustas
+      </Menu.Item>
+
       {isAdmin && (
         <>
-          <Menu.Item
-            as={Link}
-            to="/admin/users"
-            active={isCurrentPath("/admin/users")}
-          >
-            <Icon name="user outline" />
-            Usuario
-          </Menu.Item>
-
           <Menu.Item
             as={Link}
             to="/admin/menu"
@@ -38,7 +45,14 @@ export function AdminMenu() {
             <Icon name="bars" />
             Menu
           </Menu.Item>
-
+          <Menu.Item
+            as={Link}
+            to="/admin/users"
+            active={isCurrentPath("/admin/users")}
+          >
+            <Icon name="users" />
+            Usuarios
+          </Menu.Item>
           <Menu.Item
             as={Link}
             to="/admin/newsletter"
@@ -47,17 +61,16 @@ export function AdminMenu() {
             <Icon name="mail" />
             Newsletter
           </Menu.Item>
+          <Menu.Item
+            as={Link}
+            to="/admin/exercises"
+            active={isCurrentPath("/admin/exercises")}
+          >
+            <Icon name="weight" />
+            Ejercicios
+          </Menu.Item>{" "}
         </>
       )}
-
-      <Menu.Item
-        as={Link}
-        to="/admin/exercises"
-        active={isCurrentPath("/admin/exercises")}
-      >
-        <Image src={image.dumbbell} className="icon" />
-        Exercises
-      </Menu.Item>
     </Menu>
   );
 }

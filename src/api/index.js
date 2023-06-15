@@ -3,3 +3,4 @@ export * from "./user";
 export * from "./menu";
 export * from "./newsletter";
 export * from "./Exercise";
+export * from "api/Like";

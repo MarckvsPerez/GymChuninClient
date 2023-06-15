@@ -23,9 +23,11 @@
       margin-right: 10px;
       aspect-ratio: 2 / 1; /* ↔️ is double the ↕️ */
       object-fit: cover;
+      border-radius: 10px;
     }
 
     p {
+      padding-right: 10px;
       margin: 0;
 
       &:first-of-type {

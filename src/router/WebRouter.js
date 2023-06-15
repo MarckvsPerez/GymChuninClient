@@ -1,7 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { ClientLayout } from "../layouts";
-import { Home, Exercise, Exercises } from "../pages/web";
+import { Home, Exercise, Exercises, Faq } from "../pages/web";
 
 export function WebRouter() {
   const loadLayout = (Layout, Page) => {
@@ -20,6 +20,7 @@ export function WebRouter() {
         path="/exercise/:path"
         element={loadLayout(ClientLayout, Exercise)}
       />
+      <Route path="/info" element={loadLayout(ClientLayout, Faq)} />
     </Routes>
   );
 }

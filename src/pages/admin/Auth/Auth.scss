@@ -1,38 +1,62 @@
 @import "~/src/scss/index.scss";
 
 .auth {
-  background-image: url("../../../assets/jpg/auth-bg.jpg");
-  min-height: 100vh;
-  background-position: center;
-  background-size: contain;
+  height: 100%;
+  width: 100%;
   display: flex;
-  align-items: center;
-  flex-direction: column;
-  padding-top: 100px;
-
-  .logo {
-    width: 200px;
-    margin-bottom: 30px;
-  }
+  justify-content: center;
+  padding: 10px;
+  padding-top: 30px;
 
   &__forms {
-    width: 450px;
+    width: 50%;
+    height: 100%;
 
     .ui.menu {
       .item {
+        color: $text-light;
         width: 50%;
         justify-content: center;
-        background-color: #fff !important;
-        border-radius: 0 !important;
-        border-top: 4px solid $border-grey !important;
-        font-size: 18px;
+        font-size: 1.2rem;
+        opacity: 0.6;
+        background-color: transparent;
 
         &.active {
-          font-weight: normal;
-          border-radius: 0 !important;
-          border-top-color: $primary !important;
+          opacity: 1;
+          background-color: $background-dark;
+          color: $text-light;
+        }
+
+        &:hover {
+          color: white;
+          opacity: 1;
         }
       }
+    }
+
+    .ui.attached {
+      color: $text-light;
+
+      &.segment {
+        background-color: $background-dark;
+
+        .ui.checkbox label {
+          color: $text-light;
+        }
+
+        .ui.button:hover,
+        .ui.button:active,
+        .ui.button:focus {
+          background-color: transparent;
+          box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.4);
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    &__forms {
+      width: 100%;
     }
   }
 }

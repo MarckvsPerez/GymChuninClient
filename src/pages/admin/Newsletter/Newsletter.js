@@ -1,6 +1,7 @@
 import React from "react";
 import { Tab } from "semantic-ui-react";
 import { ListEmails } from "../../../components/Admin/Newsletter";
+import "./Newsletter.scss";
 
 export function Newsletter() {
   const panes = [

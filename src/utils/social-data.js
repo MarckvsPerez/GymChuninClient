@@ -1,18 +1,18 @@
 export const socialData = [
   {
-    type: "youtube",
-    link: "https://www.youtube.com/c/AgustinNavarroGaldon?sub_confirmation=1",
+    type: "github",
+    link: "https://github.com/MarckvsPerez",
   },
   {
     type: "twitter",
-    link: "https://twitter.com/xAgustin93",
+    link: "https://twitter.com/Marcvs_XIII",
   },
   {
-    type: "facebook",
-    link: "https://www.facebook.com/AgustinNavarroGaldon",
+    type: "instagram",
+    link: "https://www.instagram.com/marckvs/",
   },
   {
     type: "linkedin",
-    link: "https://www.linkedin.com/in/agustin93?originalSubdomain=es",
+    link: "https://www.linkedin.com/in/marcperezsalat/",
   },
 ];

@@ -26,7 +26,7 @@ export function ListEmails() {
         const response = await newsletterController.getEmails(
           accessToken,
           page,
-          2
+          20
         );
         setEmails(response.docs);
         setPagination({
@@ -64,6 +64,8 @@ export function ListEmails() {
           ellipsisItem={false}
           firstItem={false}
           lastItem={false}
+          secondary
+          pointing
           onPageChange={changePage}
         />
       </div>

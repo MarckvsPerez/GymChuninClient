@@ -1,0 +1,44 @@
+@import "~/src/scss/index.scss";
+
+.banner {
+  padding: 10px;
+  height: 500px;
+  border-radius: 20px;
+  background-image: url("../../../assets/jpg/Banner.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+
+  &__dark {
+    border-radius: 20px;
+    background-color: #000;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.4;
+  }
+
+  .container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  h1 {
+    color: $text-light;
+    font-size: 3.5rem;
+    line-height: 55px;
+    z-index: 1;
+  }
+
+  h2 {
+    color: $text-light;
+    font-weight: 100;
+    font-size: 22px;
+    z-index: 1;
+  }
+}

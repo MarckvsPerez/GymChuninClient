@@ -2,27 +2,27 @@
   "musculos": {
     "Brazo": [
       {
-        "nombre": "Bíceps braquial - Vientre largo",
-        "descripcion": "Vientre del bíceps braquial que se encuentra en la parte superior del brazo y se encarga de la flexión del codo y la supinación del antebrazo."
+        "nombre": "Biceps braquial - Vientre largo",
+        "descripcion": "Vientre del biceps braquial que se encuentra en la parte superior del brazo y se encarga de la flexión del codo y la supinación del antebrazo."
       },
       {
-        "nombre": "Bíceps braquial - Vientre corto",
-        "descripcion": "Vientre del bíceps braquial que se encuentra en la parte inferior del brazo y se encarga principalmente de la flexión del codo."
+        "nombre": "Biceps braquial - Vientre corto",
+        "descripcion": "Vientre del biceps braquial que se encuentra en la parte inferior del brazo y se encarga principalmente de la flexión del codo."
       },
       {
-        "nombre": "Tríceps braquial - Cabeza larga",
-        "descripcion": "Cabeza del tríceps braquial que se encuentra en la parte posterior del brazo y se extiende desde el omóplato hasta el codo. Se encarga de la extensión del codo y la aducción del brazo."
+        "nombre": "Triceps braquial - Cabeza larga",
+        "descripcion": "Cabeza del triceps braquial que se encuentra en la parte posterior del brazo y se extiende desde el omóplato hasta el codo. Se encarga de la extensión del codo y la aducción del brazo."
       },
       {
-        "nombre": "Tríceps braquial - Cabeza lateral",
-        "descripcion": "Cabeza del tríceps braquial que se encuentra en la parte externa del brazo. Se encarga principalmente de la extensión del codo."
+        "nombre": "Triceps braquial - Cabeza lateral",
+        "descripcion": "Cabeza del triceps braquial que se encuentra en la parte externa del brazo. Se encarga principalmente de la extensión del codo."
       },
       {
-        "nombre": "Tríceps braquial - Cabeza medial",
-        "descripcion": "Cabeza del tríceps braquial que se encuentra en la parte interna del brazo. Se encarga principalmente de la estabilización del codo durante los movimientos de fuerza."
+        "nombre": "Triceps braquial - Cabeza medial",
+        "descripcion": "Cabeza del triceps braquial que se encuentra en la parte interna del brazo. Se encarga principalmente de la estabilización del codo durante los movimientos de fuerza."
       }
     ],
-    "Hombro": [
+    "Deltoide": [
       {
         "nombre": "Deltoides - Vientre anterior",
         "descripcion": "Vientre del deltoides ubicado en la parte frontal del hombro. Se encarga de la flexión y aducción del brazo."
@@ -34,181 +34,127 @@
       {
         "nombre": "Deltoides - Vientre posterior",
         "descripcion": "Vientre del deltoides ubicado en la parte posterior del hombro. Se encarga de la extensión y aducción horizontal del brazo."
-      },
-      {
-        "nombre": "Supraespinoso",
-        "descripcion": "Músculo ubicado en la parte superior del hombro que se encarga de la abducción del brazo y la estabilidad de la articulación del hombro."
-      },
-      {
-        "nombre": "Infraespinoso",
-        "descripcion": "Músculo ubicado en la parte posterior del hombro que se encarga de la rotación externa del brazo."
-      },
-      {
-        "nombre": "Redondo mayor",
-        "descripcion": "Músculo ubicado en la parte posterior del hombro que se encarga de la aducción y rotación interna del brazo."
-      },
-      {
-        "nombre": "Subescapular",
-        "descripcion": "Músculo ubicado en la parte anterior del hombro que se encarga de la aducción y rotación interna del brazo."
-      },
-      {
-        "nombre": "Trapecio",
-        "descripcion": "Músculo ubicado en la parte superior y posterior del cuerpo que se extiende hasta el hombro y se encarga de la elevación, retracción y rotación de la escápula."
       }
     ],
     "Pectoral": [
       {
         "nombre": "Pectoral mayor",
-        "descripcion": "Músculo ubicado en la parte frontal del tórax. Se encarga de la flexión, aducción y rotación medial del brazo."
+        "descripcion": "Musculo ubicado en la parte frontal del tórax. Se encarga de la flexión, aducción y rotación medial del brazo."
       },
       {
         "nombre": "Pectoral menor",
-        "descripcion": "Músculo ubicado debajo del pectoral mayor. Se encarga de la aducción y rotación medial del omóplato."
+        "descripcion": "Musculo ubicado debajo del pectoral mayor. Se encarga de la aducción y rotación medial del omóplato."
+      }
+    ],
+    "Abdominales": [
+      {
+        "nombre": "Recto abdominal",
+        "descripcion": "Musculo ubicado en la parte anterior del abdomen. Se encarga de la flexión del tronco y la compresión de la cavidad abdominal."
       },
       {
-        "nombre": "Serrato anterior",
-        "descripcion": "Músculo ubicado en la pared lateral del tórax. Se encarga de la proyección y rotación del omóplato hacia adelante."
+        "nombre": "Oblicuo externo del abdomen",
+        "descripcion": "Musculo ubicado en los laterales del abdomen. Se encarga de la rotación y flexión lateral del tronco."
       }
     ],
     "Espalda": [
       {
         "nombre": "Dorsal ancho",
-        "descripcion": "Músculo ubicado en la parte posterior de la espalda. Se encarga de la extensión, aducción y rotación interna del brazo."
-      },
-      {
-        "nombre": "Erector de la columna",
-        "descripcion": "Grupo de músculos ubicados a lo largo de la columna vertebral. Se encargan de la extensión y la estabilidad de la columna."
+        "descripcion": "Musculo ubicado en la parte posterior de la espalda. Se encarga de la extensión, aducción y rotación interna del brazo."
       },
       {
         "nombre": "Romboides",
-        "descripcion": "Músculos ubicados entre los omóplatos. Se encargan de la retracción y rotación del omóplato hacia la columna."
+        "descripcion": "Musculos ubicados entre los omóplatos. Se encargan de la retracción y rotación del omóplato hacia la columna."
       },
       {
         "nombre": "Lumbares",
-        "descripcion": "Grupo de músculos ubicados en la parte baja de la espalda. Se encargan de la extensión y la estabilidad de la columna lumbar."
+        "descripcion": "Grupo de musculos ubicados en la parte baja de la espalda. Se encargan de la extensión y la estabilidad de la columna lumbar."
       },
       {
-        "nombre": "Espinales",
-        "descripcion": "Grupo de músculos ubicados a lo largo de la columna vertebral. Se encargan de la extensión y la estabilidad de la columna."
+        "nombre": "Trapecio",
+        "descripcion": "Musculo ubicado en la parte superior y posterior del torso. Se encarga de la elevación y rotación de los hombros, así como de la retracción de la escápula."
+      },
+      {
+        "nombre": "Redondo",
+        "descripcion": "Musculo ubicado en la parte superior y posterior del hombro. Se encarga de la rotación externa del brazo y contribuye a la estabilidad del hombro."
+      },
+      {
+        "nombre": "Infraespinoso",
+        "descripcion": "Musculo ubicado en la parte posterior del hombro. Se encarga de la rotación externa del brazo y contribuye a la estabilidad del hombro."
       }
     ],
-
-    "cuadriceps": [
+    "Cuadriceps": [
       {
         "nombre": "Recto femoral",
-        "descripcion": "Músculo ubicado en la parte frontal del muslo. Se encarga de la extensión de la rodilla y la flexión de la cadera."
+        "descripcion": "Musculo ubicado en la parte frontal del muslo. Se encarga de la extensión de la rodilla y la flexión de la cadera."
       },
       {
         "nombre": "Vasto lateral",
-        "descripcion": "Músculo ubicado en la parte lateral del muslo. Se encarga de la extensión de la rodilla."
-      },
-      {
-        "nombre": "Vasto intermedio",
-        "descripcion": "Músculo ubicado en la parte frontal del muslo. Se encarga de la extensión de la rodilla."
+        "descripcion": "Musculo ubicado en la parte lateral del muslo. Se encarga de la extensión de la rodilla."
       },
       {
         "nombre": "Vasto medial",
-        "descripcion": "Músculo ubicado en la parte medial del muslo. Se encarga de la extensión de la rodilla."
+        "descripcion": "Musculo ubicado en la parte medial del muslo. Se encarga de la extensión de la rodilla."
       }
     ],
-    "isquiotibiales": [
+    "Isquiotibiales": [
       {
-        "nombre": "Bíceps femoral",
-        "descripcion": "Músculo ubicado en la parte posterior del muslo. Se encarga de la flexión de la rodilla y la extensión de la cadera."
+        "nombre": "Biceps femoral",
+        "descripcion": "Musculo ubicado en la parte posterior del muslo. Se encarga de la flexión de la rodilla y la extensión de la cadera."
       },
       {
         "nombre": "Semitendinoso",
-        "descripcion": "Músculo ubicado en la parte posterior y medial del muslo. Se encarga de la flexión de la rodilla y la extensión de la cadera."
+        "descripcion": "Musculo ubicado en la parte posterior y medial del muslo. Se encarga de la flexión de la rodilla y la extensión de la cadera."
       },
       {
         "nombre": "Semimembranoso",
-        "descripcion": "Músculo ubicado en la parte posterior y medial del muslo. Se encarga de la flexión de la rodilla y la extensión de la cadera."
+        "descripcion": "Musculo ubicado en la parte posterior y medial del muslo. Se encarga de la flexión de la rodilla y la extensión de la cadera."
       }
     ],
-    "gemelos": [
+    "Gemelos": [
       {
-        "nombre": "Gastrocnemio",
-        "descripcion": "Músculo ubicado en la parte posterior de la pierna. Se encarga de la flexión plantar del pie y la flexión de la rodilla."
+        "nombre": "Gemelo",
+        "descripcion": "Musculo ubicado en la parte posterior de la pierna. Se encarga de la flexión plantar del pie y la flexión de la rodilla."
       },
-      {
-        "nombre": "Sóleo",
-        "descripcion": "Músculo ubicado en la parte posterior de la pierna, debajo del gastrocnemio. Se encarga de la flexión plantar del pie."
-      }
-    ],
-    "gluteos": [
-      {
-        "nombre": "Glúteo mayor",
-        "descripcion": "Músculo ubicado en la parte externa de la cadera. Se encarga de la extensión y abducción de la cadera."
-      },
-      {
-        "nombre": "Glúteo medio",
-        "descripcion": "Músculo ubicado en la parte lateral de la cadera. Se encarga de la abducción y rotación interna de la cadera."
-      },
-      {
-        "nombre": "Glúteo menor",
-        "descripcion": "Músculo ubicado en la parte profunda del glúteo mayor. Se encarga de la abducción y rotación interna de la cadera."
-      }
-    ],
-    "abductores": [
-      {
-        "nombre": "Tensor de la fascia lata",
-        "descripcion": "Músculo ubicado en la parte lateral del muslo. Se encarga de la flexión, abducción y rotación interna de la cadera."
-      },
-      {
-        "nombre": "Pectíneo",
-        "descripcion": "Músculo ubicado en la parte interna del muslo. Se encarga de la aducción y rotación externa de la cadera."
-      },
-      {
-        "nombre": "Aductor largo",
-        "descripcion": "Músculo ubicado en la parte interna del muslo. Se encarga de la aducción y rotación externa de la cadera."
-      },
-      {
-        "nombre": "Aductor corto",
-        "descripcion": "Músculo ubicado en la parte interna del muslo. Se encarga de la aducción y rotación externa de la cadera."
-      },
-      {
-        "nombre": "Aductor mayor",
-        "descripcion": "Músculo ubicado en la parte interna del muslo. Se encarga de la aducción y rotación externa de la cadera."
-      },
-      {
-        "nombre": "Grácil",
-        "descripcion": "Músculo ubicado en la parte interna del muslo. Se encarga de la aducción y rotación externa de la cadera."
-      }
-    ],
-    "pantorrilla": [
       {
         "nombre": "Soleo",
-        "descripcion": "Músculo ubicado en la parte posterior de la pierna. Se encarga de la flexión plantar del pie."
-      },
-      {
-        "nombre": "Gastrocnemio",
-        "descripcion": "Músculo ubicado en la parte posterior de la pierna. Se encarga de la flexión plantar del pie y la flexión de la rodilla."
-      },
-      {
-        "nombre": "Tibial posterior",
-        "descripcion": "Músculo ubicado en la parte posterior de la pierna. Se encarga de la inversión y flexión plantar del pie."
+        "descripcion": "Musculo ubicado en la parte posterior de la pierna, debajo del gastrocnemio. Se encarga de la flexión plantar del pie."
       }
     ],
-    "aductores": [
+    "Gluteos": [
       {
-        "nombre": "Pectíneo",
-        "descripcion": "Músculo ubicado en la parte interna del muslo. Se encarga de la aducción y rotación externa de la cadera."
+        "nombre": "Gluteo mayor",
+        "descripcion": "Musculo ubicado en la parte externa de la cadera. Se encarga de la extensión y abducción de la cadera."
       },
+      {
+        "nombre": "Gluteo medio",
+        "descripcion": "Musculo ubicado en la parte lateral de la cadera. Se encarga de la abducción y rotación interna de la cadera."
+      }
+    ],
+    "Abductores": [
+      {
+        "nombre": "Tensor de la fascia lata",
+        "descripcion": "Musculo ubicado en la parte lateral del muslo. Se encarga de la flexión, abducción y rotación interna de la cadera."
+      }
+    ],
+    "Pantorrilla": [
+      {
+        "nombre": "Tibial posterior",
+        "descripcion": "Musculo ubicado en la parte posterior de la pierna. Se encarga de la inversión y flexión plantar del pie."
+      }
+    ],
+    "Aductores": [
       {
         "nombre": "Aductor largo",
-        "descripcion": "Músculo ubicado en la parte interna del muslo. Se encarga de la aducción y rotación externa de la cadera."
+        "descripcion": "Musculo ubicado en la parte interna del muslo. Se encarga de la aducción y rotación externa de la cadera."
       },
-      {
-        "nombre": "Aductor corto",
-        "descripcion": "Músculo ubicado en la parte interna del muslo. Se encarga de la aducción y rotación externa de la cadera."
-      },
+
       {
         "nombre": "Aductor mayor",
-        "descripcion": "Músculo ubicado en la parte interna del muslo. Se encarga de la aducción y rotación externa de la cadera."
+        "descripcion": "Musculo ubicado en la parte interna del muslo. Se encarga de la aducción y rotación externa de la cadera."
       },
       {
-        "nombre": "Grácil",
-        "descripcion": "Músculo ubicado en la parte interna del muslo. Se encarga de la aducción y rotación externa de la cadera."
+        "nombre": "Psoas",
+        "descripcion": "Músculo ubicado en la región lumbar y parte anterior de la cadera. Se encarga de la flexión de la cadera y participa en el movimiento de la columna vertebral."
       }
     ]
   }
