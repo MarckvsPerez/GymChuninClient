@@ -23,9 +23,15 @@
       box-shadow: 0px 0px 15px rgba(255, 255, 255, 1);
     }
 
-    img {
-      aspect-ratio: 1/1;
-      object-fit: cover;
+    .image {
+      height: 50%;
+      overflow: hidden;
+
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
     }
 
     > .content {
@@ -64,7 +70,7 @@
   display: none;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .exercise {
     display: block;
     overflow: auto;
