@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Label, Icon } from "semantic-ui-react";
+import { Label, Icon, Transition, Popup, Button } from "semantic-ui-react";
 import { useAuth } from "../../../hooks";
 import { User, Like } from "api";
 
@@ -12,6 +12,8 @@ export function LikeButton(props) {
   const [user, setUser] = useState(null);
   const [likeState, setLikeState] = useState(null);
   const [likeCount, setLikeCount] = useState(exercise.likedByUsers.length);
+  const [visible, setVisible] = useState(true);
+  const [showPopup, setShowPopup] = useState(false);
 
   const { accessToken } = useAuth();
 
@@ -19,7 +21,7 @@ export function LikeButton(props) {
     const fetchUser = async () => {
       try {
         const response = await userController.getMe(accessToken);
-        if (response && response.firstname) {
+        if (response && response._id) {
           setUser(response);
         } else {
           setUser(null);
@@ -48,29 +50,53 @@ export function LikeButton(props) {
   }, [accessToken, user, exercise]);
 
   async function likeExercise() {
-    try {
-      const data = {
-        userId: user._id,
-        exerciseId: exercise._id,
-      };
+    setVisible((prevStata) => !prevStata);
+    if (user) {
+      try {
+        const data = {
+          userId: user._id,
+          exerciseId: exercise._id,
+        };
 
-      if (!likeState) {
-        await likeController.likeExercise(accessToken, data);
-      } else {
-        await likeController.unlikeExercise(accessToken, data);
+        if (!likeState) {
+          await likeController.likeExercise(accessToken, data);
+        } else {
+          await likeController.unlikeExercise(accessToken, data);
+        }
+
+        setLikeState((prevStata) => !prevStata);
+        setLikeCount((prevCount) =>
+          likeState ? prevCount - 1 : prevCount + 1
+        );
+      } catch (error) {
+        console.error(error);
       }
-
-      setLikeState((prevStata) => !prevStata);
-      setLikeCount((prevCount) => (likeState ? prevCount - 1 : prevCount + 1));
-    } catch (error) {
-      console.error(error);
+    } else {
+      setShowPopup(true);
     }
   }
 
   return (
-    <Label as="a" onClick={likeExercise}>
-      <Icon name={likeState ? "heart" : "heart outline"} />
-      {likeCount} {showText ? "Me gustas" : ""}
-    </Label>
+    <>
+      <Popup
+        content="Por favor, inicia sesión para dar like al ejercicio."
+        open={showPopup}
+        onClose={() => setShowPopup(false)}
+        trigger={
+          <Label>
+            <Transition visible={visible} animation="pulse" duration={500}>
+              <Icon
+                onClick={likeExercise}
+                name={likeState ? "heart" : "heart outline"}
+              />
+            </Transition>
+
+            <Label.Detail>
+              {likeCount} {showText ? "Me gustas" : ""}
+            </Label.Detail>
+          </Label>
+        }
+      />
+    </>
   );
 }

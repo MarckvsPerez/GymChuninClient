@@ -13,18 +13,7 @@ import { ReactComponent as Gemelos } from "./svg/Gemelo.svg";
 import { ReactComponent as Gluteos } from "./svg/Gluteo.svg";
 import { ReactComponent as Pantorrilla } from "./svg/Pantorrilla.svg";
 
-import authBg from "./jpg/auth-bg.jpg";
-import banner from "./jpg/Banner.jpg";
-import noAvatar from "./jpg/no-avatar.jpg";
-import academyLogo from "./png/academy-logo.png";
-import avatar01 from "./png/avatar_01.png";
-import avatar02 from "./png/avatar_02.png";
-import avatar03 from "./png/avatar_03.png";
-import avatar04 from "./png/avatar_04.png";
-import avatar05 from "./png/avatar_05.png";
-import avatar06 from "./png/avatar_06.png";
-import dumbbell from "./png/dumbbell.png";
-import user from "./png/User.png";
+import noAvatar from "./png/noUser.png";
 
 const Icon = {
   LogoWhite,
@@ -44,18 +33,7 @@ const Icon = {
 };
 
 const image = {
-  authBg,
-  banner,
   noAvatar,
-  academyLogo,
-  avatar01,
-  avatar02,
-  avatar03,
-  avatar04,
-  avatar05,
-  avatar06,
-  dumbbell,
-  user,
 };
 
 export { Icon, image };
