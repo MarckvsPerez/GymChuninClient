@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Label, Icon, Transition, Popup, Button } from "semantic-ui-react";
 import { useAuth } from "../../../hooks";
 import { User, Like } from "api";
+import "./LikeButton.scss";
 
 const userController = new User();
 const likeController = new Like();
@@ -83,12 +84,14 @@ export function LikeButton(props) {
         open={showPopup}
         onClose={() => setShowPopup(false)}
         trigger={
-          <Label>
-            <Transition visible={visible} animation="pulse" duration={500}>
-              <Icon
-                onClick={likeExercise}
-                name={likeState ? "heart" : "heart outline"}
-              />
+          <Label className="like-button">
+            <Transition visible={visible} animation="bounce" duration={1300}>
+              <Button icon>
+                <Icon
+                  onClick={likeExercise}
+                  name={likeState ? "heart" : "heart outline"}
+                />
+              </Button>
             </Transition>
 
             <Label.Detail>
