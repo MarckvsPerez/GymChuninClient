@@ -18,6 +18,10 @@ export function AdminMenu() {
 
   return (
     <Menu fluid vertical icon text className="admin-menu">
+      <Menu.Item as={Link} to="/" active={isCurrentPath("/")}>
+        <Icon name="home" />
+        Inicio
+      </Menu.Item>
       <Menu.Item
         as={Link}
         to="/admin/profile"
