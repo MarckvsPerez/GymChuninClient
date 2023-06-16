@@ -49,7 +49,7 @@ export function ExerciseItem(props) {
   return (
     <>
       <div className="exercise-item">
-        <div className="exercise-item__info">
+        <div className="exercise-item__image">
           <Image
             src={
               exercise.miniature
@@ -57,66 +57,66 @@ export function ExerciseItem(props) {
                 : image.noAvatar
             }
           />
-
-          <div>
+        </div>
+        <div className="exercise-item__info">
+          <div className="Main">
             <p>{exercise.title}</p>
             <p> {exercise.muscle}</p>
             <p>
               <Icon name="heart" /> {exercise.likedByUsers.length}
             </p>
           </div>
-        </div>
-
-        <div>
-          {isMobile && editable ? (
-            <Dropdown icon="cog" pointing="right" button className="icon">
-              <Dropdown.Menu>
-                <Dropdown.Item>
+          <div className="Buttons">
+            {isMobile && editable ? (
+              <Dropdown icon="cog" pointing="right" button className="icon">
+                <Dropdown.Menu>
+                  <Dropdown.Item>
+                    <>
+                      <Button
+                        as={Link}
+                        icon
+                        to={`/exercise/${exercise.path}`}
+                        target="_blank"
+                      >
+                        <Icon name="eye" />
+                      </Button>
+                      {editable && (
+                        <>
+                          <Button icon primary onClick={onOpenCloseModal}>
+                            <Icon name="pencil" />
+                          </Button>
+                          <Button icon color="red" onClick={onOpenCloseConfirm}>
+                            <Icon name="trash" />
+                          </Button>
+                        </>
+                      )}
+                    </>
+                  </Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
+            ) : (
+              <>
+                <Button
+                  as={Link}
+                  icon
+                  to={`/exercise/${exercise.path}`}
+                  target="_blank"
+                >
+                  <Icon name="eye" />
+                </Button>
+                {editable && (
                   <>
-                    <Button
-                      as={Link}
-                      icon
-                      to={`/exercise/${exercise.path}`}
-                      target="_blank"
-                    >
-                      <Icon name="eye" />
+                    <Button icon primary onClick={onOpenCloseModal}>
+                      <Icon name="pencil" />
                     </Button>
-                    {editable && (
-                      <>
-                        <Button icon primary onClick={onOpenCloseModal}>
-                          <Icon name="pencil" />
-                        </Button>
-                        <Button icon color="red" onClick={onOpenCloseConfirm}>
-                          <Icon name="trash" />
-                        </Button>
-                      </>
-                    )}
+                    <Button icon color="red" onClick={onOpenCloseConfirm}>
+                      <Icon name="trash" />
+                    </Button>
                   </>
-                </Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
-          ) : (
-            <>
-              <Button
-                as={Link}
-                icon
-                to={`/exercise/${exercise.path}`}
-                target="_blank"
-              >
-                <Icon name="eye" />
-              </Button>
-              {editable && (
-                <>
-                  <Button icon primary onClick={onOpenCloseModal}>
-                    <Icon name="pencil" />
-                  </Button>
-                  <Button icon color="red" onClick={onOpenCloseConfirm}>
-                    <Icon name="trash" />
-                  </Button>
-                </>
-              )}
-            </>
-          )}
+                )}
+              </>
+            )}
+          </div>
         </div>
       </div>
 

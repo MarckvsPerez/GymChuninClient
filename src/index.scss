@@ -1,6 +1,6 @@
 html {
   // Calcular font size para usar rem, con min y max
-  font-size: clamp(8px, calc(12px + 0.390625vw), 16px);
+  font-size: clamp(8px, calc(12px + 0.390625vw), 16px) !important;
 }
 
 body {
