@@ -97,7 +97,7 @@ export function RadarChart(props) {
     labels: muscleGroupGeneral,
     datasets: [
       {
-        label: "My First Dataset",
+        label: "User Info",
         data: userData,
         backgroundColor: "rgba(255, 255, 255, 0.6)",
         borderColor: "rgb(255, 255, 255)",
@@ -111,6 +111,7 @@ export function RadarChart(props) {
     responsive: true,
     scales: {
       r: {
+        beginAtZero: true,
         angleLines: {
           color: "#bebebe",
         },
@@ -119,8 +120,6 @@ export function RadarChart(props) {
         },
         ticks: {
           display: false,
-          suggestedMin: 0,
-          suggestedMax: 5,
         },
       },
     },
